@@ -21,7 +21,8 @@ class WeatherViewModel(private val repository: WeatherRepository) : ViewModel() 
         _uiState.value = WeatherUiState.Loading
         viewModelScope.launch {
             try {
-                val response = repository.getWeather()
+                // Coordenadas fijas para Mocoa, Putumayo
+                val response = repository.getWeather(1.1483, -76.6481)
                 if (response.isSuccessful) {
                     val body = response.body()
                     if (body != null) {
