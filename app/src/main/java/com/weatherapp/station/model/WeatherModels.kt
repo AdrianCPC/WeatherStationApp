@@ -1,29 +1,31 @@
 package com.weatherapp.station.model
 
+import com.google.gson.annotations.SerializedName
+
 data class WeatherResponse(
-    val current: CurrentWeather,
-    val daily: List<DailyForecast>,
-    val hourly: List<HourlyForecast>
+    @SerializedName("current") val current: CurrentWeather,
+    @SerializedName("daily") val daily: List<DailyForecast>,
+    @SerializedName("hourly") val hourly: List<HourlyForecast>
 )
 
 data class CurrentWeather(
-    val temperature: Double,
-    val humidity: Int,
-    val windSpeed: Double,
-    val windDirection: String,
-    val pressure: Int,
-    val accumulatedRain: Double
+    @SerializedName("temp") val temperature: Double,
+    @SerializedName("humidity") val humidity: Int,
+    @SerializedName("wind_speed") val windSpeed: Double,
+    @SerializedName("wind_dir") val windDirection: String,
+    @SerializedName("pressure") val pressure: Int,
+    @SerializedName("precip") val accumulatedRain: Double
 )
 
 data class DailyForecast(
-    val date: String,
-    val maxTemperature: Double,
-    val minTemperature: Double,
-    val rainProbability: Int
+    @SerializedName("date") val date: String,
+    @SerializedName("temp_max") val maxTemperature: Double,
+    @SerializedName("temp_min") val minTemperature: Double,
+    @SerializedName("pop") val rainProbability: Int
 )
 
 data class HourlyForecast(
-    val time: String,
-    val temperature: Double,
-    val rainProbability: Int
+    @SerializedName("time") val time: String,
+    @SerializedName("temp") val temperature: Double,
+    @SerializedName("pop") val rainProbability: Int
 )

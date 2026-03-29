@@ -37,7 +37,7 @@ fun WeatherScreen(viewModel: WeatherViewModel) {
                 val hourly = state.data.hourly
                 val daily = state.data.daily
                 
-                // Helper to convert direction string to degrees
+                // Conversión placeholder de la dirección a grados
                 val windDirectionDegrees = when(current.windDirection.uppercase()) {
                     "N" -> 0f
                     "NE" -> 45f
@@ -63,7 +63,6 @@ fun WeatherScreen(viewModel: WeatherViewModel) {
                         modifier = Modifier.padding(bottom = 24.dp, top = 32.dp)
                     )
                     
-                    // Top Row with Temperature and Wind Gauge
                     Row(
                         modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
                         horizontalArrangement = Arrangement.SpaceEvenly,
@@ -84,7 +83,6 @@ fun WeatherScreen(viewModel: WeatherViewModel) {
                     
                     Spacer(modifier = Modifier.height(16.dp))
                     
-                    // Other current metrics
                     Row(
                         modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
                         horizontalArrangement = Arrangement.SpaceEvenly
@@ -108,6 +106,7 @@ fun WeatherScreen(viewModel: WeatherViewModel) {
                         modifier = Modifier.padding(horizontal = 16.dp).align(Alignment.Start)
                     )
                     Spacer(modifier = Modifier.height(8.dp))
+                    // Pasar datos reales de pronóstico por hora a UI
                     HourlyForecastRow(forecasts = hourly)
 
                     Spacer(modifier = Modifier.height(32.dp))
@@ -117,6 +116,7 @@ fun WeatherScreen(viewModel: WeatherViewModel) {
                         modifier = Modifier.padding(horizontal = 16.dp).align(Alignment.Start)
                     )
                     Spacer(modifier = Modifier.height(8.dp))
+                    // Pasar datos reales de pronóstico diario a UI
                     DailyForecastList(forecasts = daily)
                 }
             }
